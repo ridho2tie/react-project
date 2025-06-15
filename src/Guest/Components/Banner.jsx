@@ -2,7 +2,7 @@ export default function Banner() {
   return (
     <div className="relative h-130 overflow-visible">
       {/* Gradient Background */}
-      <div className="absolute inset-0  bg-gradient-to-r from-black to-gray-200"></div>
+      <div className="absolute inset-0  bg-gradient-to-l from-gray-200 to-black"></div>
 
       {/* Content Wrapper */}
       <div className="relative z-10 flex justify-between items-center h-full px-10">
