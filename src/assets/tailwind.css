@@ -1,0 +1,45 @@
+@import "tailwindcss";
+@font-face {
+  font-family: "Barlow";
+}
+
+@font-face {
+  font-family: "Poppins";
+  src: url("/fonts/Poppins/Poppins-Regular.ttf");
+}
+
+@font-face {
+  font-family: "Barlow-XL";
+  src: url("/fonts/Barlow/Barlow-ExtraBold.ttf");
+}
+
+@font-face {
+  font-family: "Poppins-XL";
+  src: url("/fonts/Poppins/Poppins-ExtraBold.ttf");
+}
+
+@theme {
+  --font-barlow: "Barlow", sans-serif;
+  --font-barlowxl: "Barlow-XL", sans-serif;
+  --font-poppins: "Poppins", sans-serif;
+  --font-poppinsxl: "Poppins-XL", sans-serif;
+  --color-latar: #f3f4f6;
+  --color-teks: #374151;
+  --color-teks-samping: #6b7280;
+  --color-garis: #e5e7eb;
+  --color-hijau: #00b074;
+  --color-merah: #ef4444;
+  --color-biru: #3b82f6;
+  --color-kuning: #f59e0b;
+}
+.bg-theme-latar {
+  background-color: var(--color-hijau);
+}
+/* tailwind.css */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}

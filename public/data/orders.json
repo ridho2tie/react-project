@@ -1,0 +1,212 @@
+[
+  {
+    "order_id": "ORD001",
+    "customer_name": "R.A. Maida Puspita",
+    "status": "Pending",
+    "total_price": 806394,
+    "order_date": "2025-04-19"
+  },
+  {
+    "order_id": "ORD002",
+    "customer_name": "Febi Fujiati",
+    "status": "Cancelled",
+    "total_price": 275072,
+    "order_date": "2025-04-12"
+  },
+  {
+    "order_id": "ORD003",
+    "customer_name": "Dt. Hasta Nasyidah, M.Pd",
+    "status": "Completed",
+    "total_price": 791125,
+    "order_date": "2025-04-09"
+  },
+  {
+    "order_id": "ORD004",
+    "customer_name": "Ikin Lailasari",
+    "status": "Pending",
+    "total_price": 766351,
+    "order_date": "2025-04-08"
+  },
+  {
+    "order_id": "ORD005",
+    "customer_name": "Vega Saragih, M.Ak",
+    "status": "Pending",
+    "total_price": 272497,
+    "order_date": "2025-04-17"
+  },
+  {
+    "order_id": "ORD006",
+    "customer_name": "Tgk. Faizah Pradipta",
+    "status": "Pending",
+    "total_price": 168177,
+    "order_date": "2025-04-15"
+  },
+  {
+    "order_id": "ORD007",
+    "customer_name": "Lanang Iswahyudi",
+    "status": "Completed",
+    "total_price": 663232,
+    "order_date": "2025-04-04"
+  },
+  {
+    "order_id": "ORD008",
+    "customer_name": "Tgk. Wisnu Sitorus",
+    "status": "Pending",
+    "total_price": 638713,
+    "order_date": "2025-04-13"
+  },
+  {
+    "order_id": "ORD009",
+    "customer_name": "Padma Kuswoyo",
+    "status": "Completed",
+    "total_price": 252635,
+    "order_date": "2025-04-21"
+  },
+  {
+    "order_id": "ORD010",
+    "customer_name": "dr. Ulva Pradana",
+    "status": "Pending",
+    "total_price": 987425,
+    "order_date": "2025-04-03"
+  },
+  {
+    "order_id": "ORD011",
+    "customer_name": "Febi Fujiati",
+    "status": "Completed",
+    "total_price": 758940,
+    "order_date": "2025-04-02"
+  },
+  {
+    "order_id": "ORD012",
+    "customer_name": "Diana Purwanti",
+    "status": "Cancelled",
+    "total_price": 166888,
+    "order_date": "2025-04-19"
+  },
+  {
+    "order_id": "ORD013",
+    "customer_name": "Sutan Galak Mandala, S.T.",
+    "status": "Pending",
+    "total_price": 201203,
+    "order_date": "2025-04-10"
+  },
+  {
+    "order_id": "ORD014",
+    "customer_name": "Azalea Megantara",
+    "status": "Cancelled",
+    "total_price": 377883,
+    "order_date": "2025-04-09"
+  },
+  {
+    "order_id": "ORD015",
+    "customer_name": "Zelda Maulana",
+    "status": "Cancelled",
+    "total_price": 400080,
+    "order_date": "2025-04-14"
+  },
+  {
+    "order_id": "ORD016",
+    "customer_name": "Darmaji Wibisono",
+    "status": "Pending",
+    "total_price": 674670,
+    "order_date": "2025-04-15"
+  },
+  {
+    "order_id": "ORD017",
+    "customer_name": "Febi Fujiati",
+    "status": "Pending",
+    "total_price": 330037,
+    "order_date": "2025-04-09"
+  },
+  {
+    "order_id": "ORD018",
+    "customer_name": "Tgk. Wisnu Sitorus",
+    "status": "Pending",
+    "total_price": 301276,
+    "order_date": "2025-04-15"
+  },
+  {
+    "order_id": "ORD019",
+    "customer_name": "Ikin Lailasari",
+    "status": "Pending",
+    "total_price": 194977,
+    "order_date": "2025-04-01"
+  },
+  {
+    "order_id": "ORD020",
+    "customer_name": "Humaira Simbolon",
+    "status": "Cancelled",
+    "total_price": 58973,
+    "order_date": "2025-04-18"
+  },
+  {
+    "order_id": "ORD021",
+    "customer_name": "dr. Ulva Pradana",
+    "status": "Completed",
+    "total_price": 83606,
+    "order_date": "2025-04-11"
+  },
+  {
+    "order_id": "ORD022",
+    "customer_name": "Talia Widodo",
+    "status": "Completed",
+    "total_price": 476903,
+    "order_date": "2025-04-20"
+  },
+  {
+    "order_id": "ORD023",
+    "customer_name": "Omar Agustina",
+    "status": "Cancelled",
+    "total_price": 53849,
+    "order_date": "2025-04-09"
+  },
+  {
+    "order_id": "ORD024",
+    "customer_name": "Karta Hakim",
+    "status": "Completed",
+    "total_price": 73868,
+    "order_date": "2025-04-02"
+  },
+  {
+    "order_id": "ORD025",
+    "customer_name": "Talia Widodo",
+    "status": "Completed",
+    "total_price": 462188,
+    "order_date": "2025-04-12"
+  },
+  {
+    "order_id": "ORD026",
+    "customer_name": "Ikin Lailasari",
+    "status": "Completed",
+    "total_price": 978464,
+    "order_date": "2025-04-15"
+  },
+  {
+    "order_id": "ORD027",
+    "customer_name": "Vega Saragih, M.Ak",
+    "status": "Completed",
+    "total_price": 133034,
+    "order_date": "2025-04-04"
+  },
+  {
+    "order_id": "ORD028",
+    "customer_name": "Zelda Maulana",
+    "status": "Completed",
+    "total_price": 522426,
+    "order_date": "2025-04-18"
+  },
+  {
+    "order_id": "ORD029",
+    "customer_name": "Dt. Hasta Nasyidah, M.Pd",
+    "status": "Cancelled",
+    "total_price": 579303,
+    "order_date": "2025-04-19"
+  },
+  {
+    "order_id": "ORD030",
+    "customer_name": "Cut Lala Yuniar, S.Farm",
+    "status": "Pending",
+    "total_price": 233526,
+    "order_date": "2025-04-14"
+  }
+]

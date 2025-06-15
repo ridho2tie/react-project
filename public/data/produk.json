@@ -1,0 +1,322 @@
+[
+  {
+    "name": "Running Canvas Shoes",
+    "price": "Rs. 2342.00",
+    "oldPrice": "Rs. 4343.00",
+    "image": "/img/produk/Sepatu1.jpg",
+    "rating": 3.9,
+    "terjual": 227
+  },
+  {
+    "name": "Casual Urban Shoes",
+    "price": "Rs. 3185.00",
+    "oldPrice": "Rs. 5837.00",
+    "image": "/img/produk/Sepatu2.jpg",
+    "rating": 4.8,
+    "terjual": 263
+  },
+  {
+    "name": "Streetwear Sneakers Shoes",
+    "price": "Rs. 2566.00",
+    "oldPrice": "Rs. 5994.00",
+    "image": "/img/produk/Sepatu3.jpg",
+    "rating": 4.8,
+    "terjual": 111
+  },
+  {
+    "name": "Basketball Pro Shoes",
+    "price": "Rs. 2891.00",
+    "oldPrice": "Rs. 5605.00",
+    "image": "/img/produk/Sepatu4.jpg",
+    "rating": 5.0,
+    "terjual": 134
+  },
+  {
+    "name": "White Classic Shoes",
+    "price": "Rs. 3472.00",
+    "oldPrice": "Rs. 4492.00",
+    "image": "/img/produk/Sepatu5.jpg",
+    "rating": 4.5,
+    "terjual": 76
+  },
+  {
+    "name": "Trail Runners Shoes",
+    "price": "Rs. 2245.00",
+    "oldPrice": "Rs. 5955.00",
+    "image": "/img/produk/Sepatu6.jpg",
+    "rating": 3.6,
+    "terjual": 267
+  },
+  {
+    "name": "High-Top Sneakers Shoes",
+    "price": "Rs. 2847.00",
+    "oldPrice": "Rs. 5942.00",
+    "image": "/img/produk/Sepatu7.jpg",
+    "rating": 4.6,
+    "terjual": 108
+  },
+  {
+    "name": "Outdoor Trail Shoes",
+    "price": "Rs. 2514.00",
+    "oldPrice": "Rs. 4165.00",
+    "image": "/img/produk/Sepatu8.jpg",
+    "rating": 5.0,
+    "terjual": 206
+  },
+  {
+    "name": "Comfort Shoes Shoes",
+    "price": "Rs. 2982.00",
+    "oldPrice": "Rs. 5471.00",
+    "image": "/img/produk/Sepatu9.jpg",
+    "rating": 4.3,
+    "terjual": 294
+  },
+  {
+    "name": "Air Max Shoes",
+    "price": "Rs. 3182.00",
+    "oldPrice": "Rs. 4146.00",
+    "image": "/img/produk/Sepatu10.jpg",
+    "rating": 4.3,
+    "terjual": 98
+  },
+  {
+    "name": "Eco Knit Shoes",
+    "price": "Rs. 2047.00",
+    "oldPrice": "Rs. 5713.00",
+    "image": "/img/produk/Sepatu11.jpg",
+    "rating": 3.8,
+    "terjual": 300
+  },
+  {
+    "name": "Sprint Series Shoes",
+    "price": "Rs. 2053.00",
+    "oldPrice": "Rs. 5558.00",
+    "image": "/img/produk/Sepatu12.jpg",
+    "rating": 3.7,
+    "terjual": 121
+  },
+  {
+    "name": "Leather Classic Shoes",
+    "price": "Rs. 2496.00",
+    "oldPrice": "Rs. 4888.00",
+    "image": "/img/produk/Sepatu13.jpg",
+    "rating": 4.9,
+    "terjual": 277
+  },
+  {
+    "name": "Grip Max Shoes",
+    "price": "Rs. 2490.00",
+    "oldPrice": "Rs. 4161.00",
+    "image": "/img/produk/Sepatu14.jpg",
+    "rating": 4.4,
+    "terjual": 224
+  },
+  {
+    "name": "Edition Kicks Shoes",
+    "price": "Rs. 3221.00",
+    "oldPrice": "Rs. 4567.00",
+    "image": "/img/produk/Sepatu15.jpg",
+    "rating": 4.5,
+    "terjual": 296
+  },
+  {
+    "name": "Slip-On Comfort Shoes",
+    "price": "Rs. 3225.00",
+    "oldPrice": "Rs. 5335.00",
+    "image": "/img/produk/Sepatu16.jpg",
+    "rating": 3.6,
+    "terjual": 163
+  },
+  {
+    "name": "Mesh Sport Shoes",
+    "price": "Rs. 2146.00",
+    "oldPrice": "Rs. 5865.00",
+    "image": "/img/produk/Sepatu17.jpg",
+    "rating": 3.8,
+    "terjual": 73
+  },
+  {
+    "name": "Bold Street Shoes",
+    "price": "Rs. 2844.00",
+    "oldPrice": "Rs. 4311.00",
+    "image": "/img/produk/Sepatu18.jpg",
+    "rating": 4.2,
+    "terjual": 135
+  },
+  {
+    "name": "Retro Fashion Shoes",
+    "price": "Rs. 2823.00",
+    "oldPrice": "Rs. 5346.00",
+    "image": "/img/produk/Sepatu19.jpg",
+    "rating": 4.0,
+    "terjual": 209
+  },
+  {
+    "name": "Urban Mid-Tops Shoes",
+    "price": "Rs. 3087.00",
+    "oldPrice": "Rs. 4720.00",
+    "image": "/img/produk/Sepatu20.jpg",
+    "rating": 4.8,
+    "terjual": 99
+  },
+  {
+    "name": "Traveler Hiker Shoes",
+    "price": "Rs. 2727.00",
+    "oldPrice": "Rs. 5118.00",
+    "image": "/img/produk/Sepatu21.jpg",
+    "rating": 3.8,
+    "terjual": 261
+  },
+  {
+    "name": "Color Burst Shoes",
+    "price": "Rs. 2846.00",
+    "oldPrice": "Rs. 5467.00",
+    "image": "/img/produk/Sepatu22.jpg",
+    "rating": 3.6,
+    "terjual": 280
+  },
+  {
+    "name": "White Canvas Shoes",
+    "price": "Rs. 3125.00",
+    "oldPrice": "Rs. 5295.00",
+    "image": "/img/produk/Sepatu23.jpg",
+    "rating": 4.2,
+    "terjual": 268
+  },
+  {
+    "name": "Skate Shoes Shoes",
+    "price": "Rs. 2808.00",
+    "oldPrice": "Rs. 5946.00",
+    "image": "/img/produk/Sepatu24.jpg",
+    "rating": 3.7,
+    "terjual": 149
+  },
+  {
+    "name": "Suede Brown Shoes",
+    "price": "Rs. 3038.00",
+    "oldPrice": "Rs. 4626.00",
+    "image": "/img/produk/Sepatu25.jpg",
+    "rating": 4.8,
+    "terjual": 129
+  },
+  {
+    "name": "Rainproof Shoes",
+    "price": "Rs. 2016.00",
+    "oldPrice": "Rs. 4287.00",
+    "image": "/img/produk/Sepatu26.jpg",
+    "rating": 4.4,
+    "terjual": 162
+  },
+  {
+    "name": "Pastel Tones Shoes",
+    "price": "Rs. 3169.00",
+    "oldPrice": "Rs. 5829.00",
+    "image": "/img/produk/Sepatu27.jpg",
+    "rating": 4.3,
+    "terjual": 118
+  },
+  {
+    "name": "Black Runners Shoes",
+    "price": "Rs. 3181.00",
+    "oldPrice": "Rs. 4423.00",
+    "image": "/img/produk/Sepatu28.jpg",
+    "rating": 4.8,
+    "terjual": 217
+  },
+  {
+    "name": "Training Fit Shoes",
+    "price": "Rs. 2734.00",
+    "oldPrice": "Rs. 5978.00",
+    "image": "/img/produk/Sepatu29.jpg",
+    "rating": 4.3,
+    "terjual": 59
+  },
+  {
+    "name": "Dual Tone Shoes",
+    "price": "Rs. 2990.00",
+    "oldPrice": "Rs. 5266.00",
+    "image": "/img/produk/Sepatu30.jpg",
+    "rating": 4.2,
+    "terjual": 153
+  },
+  {
+    "name": "Nylon Racing Shoes",
+    "price": "Rs. 3134.00",
+    "oldPrice": "Rs. 5881.00",
+    "image": "/img/produk/Sepatu31.jpg",
+    "rating": 4.2,
+    "terjual": 114
+  },
+  {
+    "name": "City Walk Shoes",
+    "price": "Rs. 2802.00",
+    "oldPrice": "Rs. 5808.00",
+    "image": "/img/produk/Sepatu32.jpg",
+    "rating": 3.7,
+    "terjual": 233
+  },
+  {
+    "name": "Lite Runners Shoes",
+    "price": "Rs. 2054.00",
+    "oldPrice": "Rs. 5604.00",
+    "image": "/img/produk/Sepatu33.jpg",
+    "rating": 5.0,
+    "terjual": 216
+  },
+  {
+    "name": "Velocity Trainers Shoes",
+    "price": "Rs. 2064.00",
+    "oldPrice": "Rs. 4922.00",
+    "image": "/img/produk/Sepatu34.jpg",
+    "rating": 3.9,
+    "terjual": 89
+  },
+  {
+    "name": "HyperGrip Shoes",
+    "price": "Rs. 2198.00",
+    "oldPrice": "Rs. 5483.00",
+    "image": "/img/produk/Sepatu35.jpg",
+    "rating": 3.9,
+    "terjual": 230
+  },
+  {
+    "name": "Neon Sprint Shoes",
+    "price": "Rs. 3473.00",
+    "oldPrice": "Rs. 4336.00",
+    "image": "/img/produk/Sepatu36.jpg",
+    "rating": 3.8,
+    "terjual": 126
+  },
+  {
+    "name": "All-Terrain Shoes",
+    "price": "Rs. 2628.00",
+    "oldPrice": "Rs. 5728.00",
+    "image": "/img/produk/Sepatu37.jpg",
+    "rating": 4.4,
+    "terjual": 126
+  },
+  {
+    "name": "Blackout Series Shoes",
+    "price": "Rs. 2905.00",
+    "oldPrice": "Rs. 4285.00",
+    "image": "/img/produk/Sepatu38.jpg",
+    "rating": 4.9,
+    "terjual": 145
+  },
+  {
+    "name": "Jetstream Shoes",
+    "price": "Rs. 3057.00",
+    "oldPrice": "Rs. 5787.00",
+    "image": "/img/produk/Sepatu39.jpg",
+    "rating": 4.1,
+    "terjual": 97
+  },
+  {
+    "name": "Featherlite Shoes",
+    "price": "Rs. 2626.00",
+    "oldPrice": "Rs. 4204.00",
+    "image": "/img/produk/Sepatu40.jpg",
+    "rating": 4.0,
+    "terjual": 194
+  }
+]
