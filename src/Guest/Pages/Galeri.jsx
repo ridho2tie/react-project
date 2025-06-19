@@ -1,7 +1,8 @@
 // src/Guest/Pages/Galeri.jsx
 import Navbar from "../Components/Navbar";
 import { useEffect, useState } from "react";
-import { GaleriAPI } from "../../services/GaleriAPI-temp";
+import { GaleriAPI } from "../../services/GaleriAPI";
+
 
 
 
