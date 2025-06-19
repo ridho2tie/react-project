@@ -1,7 +1,22 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
+import { useState } from "react";
 
 export default function Login() {
+  const navigate = useNavigate();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const handleLogin = (e) => {
+    e.preventDefault();
+    if (!email || !password) {
+      alert("Harap isi email dan password terlebih dahulu!");
+    } else {
+      // Simulasi login sukses → arahkan ke homepage
+      navigate("/");
+    }
+  };
+
   return (
     <div className="w-full flex flex-col bg-gradient-to-l from-green-900 to-gray-300 md:flex-row">
       <div className="flex-1 flex items-center justify-center px-10 py-12">
@@ -11,11 +26,13 @@ export default function Login() {
             Please enter your details
           </p>
 
-          <form className="space-y-6">
+          <form className="space-y-6" onSubmit={handleLogin}>
             <div>
               <input
                 type="email"
                 placeholder="Email address"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 className="w-full border bg-white rounded px-5 py-3 text-lg"
               />
             </div>
@@ -23,6 +40,8 @@ export default function Login() {
               <input
                 type="password"
                 placeholder="Password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
                 className="w-full border rounded bg-white  px-5 py-3 text-lg"
               />
             </div>
@@ -40,12 +59,11 @@ export default function Login() {
             >
               Log in
             </button>
-            <button className="w-full border py-3 rounded flex bg-white items-center justify-center gap-3 text-lg">
-              <FcGoogle
-                src="/img/google-icon.png"
-                alt="Google"
-                className="w-6 h-6"
-              />
+            <button
+              type="button"
+              className="w-full border py-3 rounded flex bg-white items-center justify-center gap-3 text-lg"
+            >
+              <FcGoogle className="w-6 h-6" />
               Sign in with Google
             </button>
           </form>
