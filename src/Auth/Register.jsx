@@ -1,31 +1,76 @@
 import { Link } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
+import { useState } from "react";
+import { UserRoleAPI } from "../../services/UserRoleAPI";
 
 export default function Register() {
+  const [formData, setFormData] = useState({
+    nama: "",
+    email: "",
+    password: "",
+  });
+
+  const [success, setSuccess] = useState(false);
+
+  const handleChange = (e) =>
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      await UserRoleAPI.createUserRole({
+        ...formData,
+        role: "Pelanggan",
+        status_user: "aktif",
+        created_at: new Date().toISOString(),
+      });
+      setSuccess(true);
+      setFormData({ nama: "", email: "", password: "" });
+    } catch (error) {
+      console.error("Gagal mendaftar:", error);
+    }
+  };
+
   return (
-    <div className="w-full flex bg-gradient-to-l from-cyan-200 to-gray-300flex-col md:flex-row">
+    <div className="w-full flex bg-gradient-to-l from-cyan-200 to-gray-300 flex-col md:flex-row">
       <div className="flex-1 flex items-center justify-center px-10 py-12">
         <div className="w-full max-w-2xl">
           <h2 className="text-4xl font-bold mb-6">Create an account</h2>
-          <p className="text-gray-500 mb-8 text-lg">
-            Start your journey with us
-          </p>
+          <p className="text-gray-500 mb-8 text-lg">Start your journey with us</p>
 
-          <form className="space-y-6">
+          {success && (
+            <div className="bg-green-100 text-green-800 p-4 rounded mb-6">
+              Pendaftaran berhasil! Silakan login.
+            </div>
+          )}
+
+          <form className="space-y-6" onSubmit={handleSubmit}>
             <input
               type="text"
+              name="nama"
+              value={formData.nama}
+              onChange={handleChange}
               placeholder="Your Name"
               className="w-full border bg-white rounded px-5 py-3 text-lg"
+              required
             />
             <input
               type="email"
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
               placeholder="Email address"
               className="w-full border bg-white rounded px-5 py-3 text-lg"
+              required
             />
             <input
               type="password"
+              name="password"
+              value={formData.password}
+              onChange={handleChange}
               placeholder="Password"
               className="w-full border rounded px-5 py-3 bg-white text-lg"
+              required
             />
 
             <button
@@ -34,12 +79,11 @@ export default function Register() {
             >
               Sign up
             </button>
-            <button className="w-full border py-3 rounded flex items-center bg-white justify-center gap-3 text-lg">
-              <FcGoogle
-                src="/img/google-icon.png"
-                alt="Google"
-                className="w-6 h-6"
-              />
+            <button
+              type="button"
+              className="w-full border py-3 rounded flex items-center bg-white justify-center gap-3 text-lg"
+            >
+              <FcGoogle className="w-6 h-6" />
               Sign Up with Google
             </button>
           </form>

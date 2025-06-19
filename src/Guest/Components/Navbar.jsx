@@ -23,7 +23,7 @@ export default function Navbar() {
 
   return (
     <nav className="flex justify-between items-center py-6 px-10 bg-black shadow relative">
-      <h1 className="text-3xl bg-white text-black font-extrabold px-2">KickShoe</h1>
+      <h1 className="text-3xl bg-white text-black font-extrabold px-2">SneakerX</h1>
 
       <ul className="flex space-x-6 text-white font-barlow text-xl">
         <li className="relative group">
@@ -75,12 +75,34 @@ export default function Navbar() {
 
         <li className="relative group">
           <NavLink
-            to="/FAQs"
+            to="/faqs"
             className={({ isActive }) =>
               `hover:text-gray-300 transition duration-200 ${isActive ? 'text-gray-300' : ''}`
             }
           >
             FAQs
+          </NavLink>
+          <span className="absolute left-0 -bottom-1 w-full h-0.5 bg-white scale-x-0 group-hover:scale-x-100 transition-transform origin-left"></span>
+        </li>
+                <li className="relative group">
+          <NavLink
+            to="/kontak"
+            className={({ isActive }) =>
+              `hover:text-gray-300 transition duration-200 ${isActive ? 'text-gray-300' : ''}`
+            }
+          >
+            Kontak
+          </NavLink>
+          <span className="absolute left-0 -bottom-1 w-full h-0.5 bg-white scale-x-0 group-hover:scale-x-100 transition-transform origin-left"></span>
+        </li>
+                <li className="relative group">
+          <NavLink
+            to="/galeri"
+            className={({ isActive }) =>
+              `hover:text-gray-300 transition duration-200 ${isActive ? 'text-gray-300' : ''}`
+            }
+          >
+            Galeri
           </NavLink>
           <span className="absolute left-0 -bottom-1 w-full h-0.5 bg-white scale-x-0 group-hover:scale-x-100 transition-transform origin-left"></span>
         </li>

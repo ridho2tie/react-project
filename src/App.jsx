@@ -6,6 +6,9 @@ import { Routes, Route } from "react-router-dom"
 const GuestLayout = React.lazy(() => import("./Guest/Layouts/GuestLayout"));
 const Loading = React.lazy(() => import("./Guest/Components/Loading"));
 const Produk = React.lazy(() => import("./Guest/Pages/Produk"));
+const FAQ = React.lazy(() => import("./Guest/Pages/FAQ"));
+const Galeri = React.lazy(() => import("./Guest/Pages/Galeri"));
+const Kontak = React.lazy(() => import("./Guest/Pages/Kontak"));
 
 
 const AuthLayout = React.lazy(() => import("./Auth/Layouts/AuthLayout"));
@@ -25,6 +28,9 @@ export default function App() {
         {/* Guest layout */}
         <Route path="/" element={<GuestLayout />} />
         <Route path="/produk" element={<Produk/>}/>
+        <Route path="/faqs" element={<FAQ/>}/>
+        <Route path="/kontak" element={<Kontak/>}/>
+        <Route path="/galeri" element={<Galeri/>}/>
         
         {/* Auth layout routes */}
         <Route element={<AuthLayout />}>
