@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
 import { useState } from "react";
-import { UserRoleAPI } from "../../services/UserRoleAPI";
+import { UserRoleAPI } from "../../services/UserRole";
 
 export default function Register() {
   const [formData, setFormData] = useState({
