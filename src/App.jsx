@@ -1,12 +1,12 @@
 // File: src/App.jsx
 import "./assets/tailwind.css";
 import React, { Suspense } from "react";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom"
 
 const GuestLayout = React.lazy(() => import("./Guest/Layouts/GuestLayout"));
 const Loading = React.lazy(() => import("./Guest/Components/Loading"));
 const Produk = React.lazy(() => import("./Guest/Pages/Produk"));
-const FAQs = React.lazy(() => import("./Guest/Pages/FAQs"));
+
 
 const AuthLayout = React.lazy(() => import("./Auth/Layouts/AuthLayout"));
 const Login = React.lazy(() => import("./Auth/Login"));
@@ -25,8 +25,7 @@ export default function App() {
         {/* Guest layout */}
         <Route path="/" element={<GuestLayout />} />
         <Route path="/produk" element={<Produk/>}/>
-        <Route path="/FAQs" element={<FAQs/>}/>
-
+        
         {/* Auth layout routes */}
         <Route element={<AuthLayout />}>
           <Route path="/login" element={<Login />} />
