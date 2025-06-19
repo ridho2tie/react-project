@@ -1,7 +1,7 @@
 // src/Guest/Pages/Galeri.jsx
 import Navbar from "../Components/Navbar";
 import { useEffect, useState } from "react";
-import { GaleriAPI } from "../../Services/GaleriAPI";
+import { GaleriAPI } from "../../services/GaleriAPI";
 
 export default function Galeri() {
   const [items, setItems] = useState([]);
