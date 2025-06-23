@@ -1,153 +1,119 @@
+import { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
-import {
-  FaSearch,
-  FaUserAlt,
-  FaShoppingCart,
-  FaComments
-} from 'react-icons/fa';
-import { useState } from 'react';
+import { FaSearch, FaUserAlt, FaShoppingCart, FaComments } from 'react-icons/fa';
+import BrandTag from './BrandTag'; // pastikan path ini benar
 
 export default function Navbar() {
   const [showSearch, setShowSearch] = useState(false);
-  const [showBrands, setShowBrands] = useState(false);
   const [showRoleMenu, setShowRoleMenu] = useState(false);
+  const [showBrandTag, setShowBrandTag] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
 
-  const brandIcons = [
-    { icon: '/img/brands/nike.svg', name: 'Nike' },
-    { icon: '/img/brands/adidas.svg', name: 'Adidas' },
-    { icon: '/img/brands/converse.svg', name: 'Converse' },
-    { icon: '/img/brands/newbalance.svg', name: 'New Balance' },
-    { icon: '/img/brands/nba.svg', name: 'NBA' },
-    { icon: '/img/brands/jordan.svg', name: 'Jordan' }
-  ];
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 20);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (!event.target.closest('.brand-section')) {
+        setShowBrandTag(false);
+      }
+    };
+    if (showBrandTag) {
+      document.addEventListener('mousedown', handleClickOutside);
+    }
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, [showBrandTag]);
 
   return (
-    <nav className="flex justify-between items-center py-6 px-10 bg-black shadow relative">
-      <h1 className="text-3xl bg-white text-black font-extrabold px-2">SneakerX</h1>
+    <>
+      <nav
+        className={`fixed top-0 left-0 w-full z-50 transition-all duration-300
+        ${isScrolled ? 'bg-white shadow-md' : 'bg-transparent backdrop-blur-md'}
+        flex justify-between items-center py-6 px-10`}
+      >
+        <h1 className="text-3xl font-poppinsxl px-2 text-black">SneakerX</h1>
 
-      <ul className="flex space-x-6 text-white font-barlow text-xl">
-        <li className="relative group">
-          <NavLink
-            to="/"
-            className={({ isActive }) =>
-              `hover:text-gray-300 transition duration-200 ${isActive ? 'text-gray-300' : ''}`
-            }
+        <ul className="flex space-x-6 font-poppins text-xl text-black">
+          <li>
+            <NavLink to="/" className={({ isActive }) => `transition duration-200 ${isActive ? 'text-gray-500' : 'text-black'} hover:text-gray-500`}>
+              Home
+            </NavLink>
+          </li>
+          <li className="brand-section">
+            <button
+              onClick={() => setShowBrandTag(!showBrandTag)}
+              className={`transition duration-200 cursor-pointer font-medium hover:underline
+              ${showBrandTag ? 'text-gray-500' : 'text-black hover:text-gray-500'}`}
+            >
+              Brand {showBrandTag ? '▲' : '▼'}
+            </button>
+          </li>
+          <li>
+            <NavLink to="/Produk" className={({ isActive }) => `transition duration-200 ${isActive ? 'text-gray-500' : 'text-black'} hover:text-gray-500`}>
+              Produk
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="/faqs" className={({ isActive }) => `transition duration-200 ${isActive ? 'text-gray-500' : 'text-black'} hover:text-gray-500`}>
+              FAQs
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="/kontak" className={({ isActive }) => `transition duration-200 ${isActive ? 'text-gray-500' : 'text-black'} hover:text-gray-500`}>
+              Kontak
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="/galeri" className={({ isActive }) => `transition duration-200 ${isActive ? 'text-gray-500' : 'text-black'} hover:text-gray-500`}>
+              Galeri
+            </NavLink>
+          </li>
+        </ul>
+
+        <div className="flex items-center space-x-4 text-black relative">
+          <div className="relative">
+            <FaSearch className="cursor-pointer hover:text-gray-500 transition duration-200" onClick={() => setShowSearch(!showSearch)} />
+            {showSearch && (
+              <input
+                type="text"
+                placeholder="Cari produk..."
+                className="absolute top-0 right-6 bg-white text-black px-5 py-1 rounded shadow"
+                autoFocus
+                onBlur={() => setTimeout(() => setShowSearch(false), 200)}
+              />
+            )}
+          </div>
+
+          <FaShoppingCart className="cursor-pointer hover:text-gray-500 transition duration-200" />
+          <FaUserAlt className="cursor-pointer hover:text-gray-500 transition duration-200" />
+          <FaComments className="cursor-pointer hover:text-gray-500 transition duration-200" />
+
+          <button
+            onClick={() => setShowRoleMenu(!showRoleMenu)}
+            className="ml-2 px-4 py-1 bg-black text-white font-poppinsxl rounded hover:bg-gray-200"
           >
-            Home
-          </NavLink>
-          <span className="absolute left-0 -bottom-1 w-full h-0.5 bg-white scale-x-0 group-hover:scale-x-100 transition-transform origin-left"></span>
-        </li>
+            Masuk | Daftar
+          </button>
 
-        <li
-          className="relative group cursor-pointer"
-          onMouseEnter={() => setShowBrands(true)}
-          onMouseLeave={() => setShowBrands(false)}
-        >
-          <span className="hover:text-gray-300 transition duration-200">Brand</span>
-          <span className="absolute left-0 -bottom-1 w-full h-0.5 bg-white scale-x-0 group-hover:scale-x-100 transition-transform origin-left"></span>
-
-          {showBrands && (
-            <div className="absolute mt-6 left-1/2 ml-24 -translate-x-1/2 w-screen bg-white px-10 py-10 rounded shadow-lg grid grid-cols-6">
-              {brandIcons.map((brand, i) => (
-                <div
-                  key={i}
-                  className="flex items-center justify-center hover:scale-110 transition-transform"
-                  title={brand.name}
-                >
-                  <img src={brand.icon} alt={brand.name} className="w-30 h-full object-cover" />
-                </div>
-              ))}
+          {showRoleMenu && (
+            <div className="absolute top-full right-0 mt-2 bg-white text-black shadow rounded w-48 z-50">
+              <a href="https://react-project-gooy.vercel.app/login" className="block px-4 py-2 hover:bg-gray-100 border-b">Guest</a>
+              <a href="https://sneaker-x-mocha.vercel.app/" className="block px-4 py-2 hover:bg-gray-100">Admin</a>
             </div>
           )}
-        </li>
-
-        <li className="relative group">
-          <NavLink
-            to="/Produk"
-            className={({ isActive }) =>
-              `hover:text-gray-300 transition duration-200 ${isActive ? 'text-gray-300' : ''}`
-            }
-          >
-            Produk
-          </NavLink>
-          <span className="absolute left-0 -bottom-1 w-full h-0.5 bg-white scale-x-0 group-hover:scale-x-100 transition-transform origin-left"></span>
-        </li>
-
-        <li className="relative group">
-          <NavLink
-            to="/faqs"
-            className={({ isActive }) =>
-              `hover:text-gray-300 transition duration-200 ${isActive ? 'text-gray-300' : ''}`
-            }
-          >
-            FAQs
-          </NavLink>
-          <span className="absolute left-0 -bottom-1 w-full h-0.5 bg-white scale-x-0 group-hover:scale-x-100 transition-transform origin-left"></span>
-        </li>
-                <li className="relative group">
-          <NavLink
-            to="/kontak"
-            className={({ isActive }) =>
-              `hover:text-gray-300 transition duration-200 ${isActive ? 'text-gray-300' : ''}`
-            }
-          >
-            Kontak
-          </NavLink>
-          <span className="absolute left-0 -bottom-1 w-full h-0.5 bg-white scale-x-0 group-hover:scale-x-100 transition-transform origin-left"></span>
-        </li>
-                <li className="relative group">
-          <NavLink
-            to="/galeri"
-            className={({ isActive }) =>
-              `hover:text-gray-300 transition duration-200 ${isActive ? 'text-gray-300' : ''}`
-            }
-          >
-            Galeri
-          </NavLink>
-          <span className="absolute left-0 -bottom-1 w-full h-0.5 bg-white scale-x-0 group-hover:scale-x-100 transition-transform origin-left"></span>
-        </li>
-      </ul>
-
-      <div className="flex items-center space-x-4 text-white relative">
-        <div className="relative">
-          <FaSearch className="cursor-pointer" onClick={() => setShowSearch(!showSearch)} />
-          {showSearch && (
-            <input
-              type="text"
-              placeholder="Cari produk..."
-              className="absolute top-0 right-6 bg-white text-black px-5 py-1 rounded shadow"
-              autoFocus
-            />
-          )}
         </div>
-        <FaShoppingCart className="cursor-pointer" />
-        <FaUserAlt className="cursor-pointer" />
-        <FaComments className="cursor-pointer" />
+      </nav>
 
-        <button
-          onClick={() => setShowRoleMenu(!showRoleMenu)}
-          className="ml-2 px-4 py-1 bg-white text-black font-semibold rounded hover:bg-gray-200"
-        >
-          Masuk | Daftar
-        </button>
-
-        {showRoleMenu && (
-          <div className="absolute top-full right-0 mt-2 bg-white text-black shadow rounded w-48 z-50">
-            <a
-              href="https://react-project-gooy.vercel.app/login"
-              className="block px-4 py-2 hover:bg-gray-100 border-b"
-            >
-              Guest
-            </a>
-            <a
-              href="https://sneaker-x-mocha.vercel.app/"
-              className="block px-4 py-2 hover:bg-gray-100"
-            >
-              Admin
-            </a>
-          </div>
-        )}
-      </div>
-    </nav>
+      {showBrandTag && (
+        <div className="fixed top-[88px] left-0 w-full z-40">
+          <BrandTag visible={true} />
+        </div>
+      )}
+    </>
   );
 }
