@@ -1,7 +1,12 @@
-import { useState, useEffect } from 'react';
-import { NavLink } from 'react-router-dom';
-import { FaSearch, FaUserAlt, FaShoppingCart, FaComments } from 'react-icons/fa';
-import BrandTag from './BrandTag'; // pastikan path ini benar
+import { useState, useEffect } from "react";
+import { NavLink } from "react-router-dom";
+import {
+  FaSearch,
+  FaUserAlt,
+  FaShoppingCart,
+  FaComments,
+} from "react-icons/fa";
+import BrandTag from "./BrandTag"; // pastikan path ini benar
 
 export default function Navbar() {
   const [showSearch, setShowSearch] = useState(false);
@@ -13,34 +18,48 @@ export default function Navbar() {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
     };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   useEffect(() => {
     const handleClickOutside = (event) => {
-      if (!event.target.closest('.brand-section')) {
+      if (!event.target.closest(".brand-section")) {
         setShowBrandTag(false);
       }
     };
     if (showBrandTag) {
-      document.addEventListener('mousedown', handleClickOutside);
+      document.addEventListener("mousedown", handleClickOutside);
     }
-    return () => document.removeEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
   }, [showBrandTag]);
 
   return (
     <>
       <nav
         className={`fixed top-0 left-0 w-full z-50 transition-all duration-300
-        ${isScrolled ? 'bg-white shadow-md' : 'bg-transparent backdrop-blur-md'}
-        flex justify-between items-center py-6 px-10`}
+  ${isScrolled ? "bg-white shadow-md" : "bg-transparent backdrop-blur-md"}
+  flex justify-between items-center py-2 px-10`}
       >
-        <h1 className="text-3xl font-poppinsxl px-2 text-black">SneakerX</h1>
+<img
+  src="/img/Sneakerx.png"
+  alt="SneakerX Logo"
+  className="h-20 w-50 object-cover"
+/>
+
+
+        {/* ...lanjutan Navbar tetap sama */}
 
         <ul className="flex space-x-6 font-poppins text-xl text-black">
           <li>
-            <NavLink to="/" className={({ isActive }) => `transition duration-200 ${isActive ? 'text-gray-500' : 'text-black'} hover:text-gray-500`}>
+            <NavLink
+              to="/"
+              className={({ isActive }) =>
+                `transition duration-200 ${
+                  isActive ? "text-gray-500" : "text-black"
+                } hover:text-gray-500`
+              }
+            >
               Home
             </NavLink>
           </li>
@@ -48,36 +67,119 @@ export default function Navbar() {
             <button
               onClick={() => setShowBrandTag(!showBrandTag)}
               className={`transition duration-200 cursor-pointer font-medium hover:underline
-              ${showBrandTag ? 'text-gray-500' : 'text-black hover:text-gray-500'}`}
+              ${
+                showBrandTag
+                  ? "text-gray-500"
+                  : "text-black hover:text-gray-500"
+              }`}
             >
-              Brand {showBrandTag ? '▲' : '▼'}
+              Brand {showBrandTag ? "▲" : "▼"}
             </button>
           </li>
           <li>
-            <NavLink to="/Produk" className={({ isActive }) => `transition duration-200 ${isActive ? 'text-gray-500' : 'text-black'} hover:text-gray-500`}>
+            <NavLink
+              to="/Artikel"
+              className={({ isActive }) =>
+                `transition duration-200 ${
+                  isActive ? "text-gray-500" : "text-black"
+                } hover:text-gray-500`
+              }
+            >
+              Artikel
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              to="/PricingPage"
+              className={({ isActive }) =>
+                `transition duration-200 ${
+                  isActive ? "text-gray-500" : "text-black"
+                } hover:text-gray-500`
+              }
+            >
+              PricingPage
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              to="/Produk"
+              className={({ isActive }) =>
+                `transition duration-200 ${
+                  isActive ? "text-gray-500" : "text-black"
+                } hover:text-gray-500`
+              }
+            >
               Produk
             </NavLink>
           </li>
           <li>
-            <NavLink to="/faqs" className={({ isActive }) => `transition duration-200 ${isActive ? 'text-gray-500' : 'text-black'} hover:text-gray-500`}>
+            <NavLink
+              to="/faqs"
+              className={({ isActive }) =>
+                `transition duration-200 ${
+                  isActive ? "text-gray-500" : "text-black"
+                } hover:text-gray-500`
+              }
+            >
               FAQs
             </NavLink>
           </li>
           <li>
-            <NavLink to="/kontak" className={({ isActive }) => `transition duration-200 ${isActive ? 'text-gray-500' : 'text-black'} hover:text-gray-500`}>
+            <NavLink
+              to="/kontak"
+              className={({ isActive }) =>
+                `transition duration-200 ${
+                  isActive ? "text-gray-500" : "text-black"
+                } hover:text-gray-500`
+              }
+            >
               Kontak
             </NavLink>
           </li>
           <li>
-            <NavLink to="/galeri" className={({ isActive }) => `transition duration-200 ${isActive ? 'text-gray-500' : 'text-black'} hover:text-gray-500`}>
+            <NavLink
+              to="/galeri"
+              className={({ isActive }) =>
+                `transition duration-200 ${
+                  isActive ? "text-gray-500" : "text-black"
+                } hover:text-gray-500`
+              }
+            >
               Galeri
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              to="/ourteam"
+              className={({ isActive }) =>
+                `transition duration-200 ${
+                  isActive ? "text-gray-500" : "text-black"
+                } hover:text-gray-500`
+              }
+            >
+              Team
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              to="/career"
+              className={({ isActive }) =>
+                `transition duration-200 ${
+                  isActive ? "text-gray-500" : "text-black"
+                } hover:text-gray-500`
+              }
+            >
+              Career
             </NavLink>
           </li>
         </ul>
 
         <div className="flex items-center space-x-4 text-black relative">
           <div className="relative">
-            <FaSearch className="cursor-pointer hover:text-gray-500 transition duration-200" onClick={() => setShowSearch(!showSearch)} />
+            <FaSearch
+              className="cursor-pointer hover:text-gray-500 transition duration-200"
+              onClick={() => setShowSearch(!showSearch)}
+            />
             {showSearch && (
               <input
                 type="text"
@@ -88,10 +190,16 @@ export default function Navbar() {
               />
             )}
           </div>
-
-          <FaShoppingCart className="cursor-pointer hover:text-gray-500 transition duration-200" />
-          <FaUserAlt className="cursor-pointer hover:text-gray-500 transition duration-200" />
-          <FaComments className="cursor-pointer hover:text-gray-500 transition duration-200" />
+          <NavLink
+            to="/keranjang"
+            className={({ isActive }) =>
+              `transition duration-200 ${
+                isActive ? "text-gray-500" : "text-black"
+              } hover:text-gray-500`
+            }
+          >
+            <FaShoppingCart className="cursor-pointer hover:text-gray-500 transition duration-200" />
+          </NavLink>
 
           <button
             onClick={() => setShowRoleMenu(!showRoleMenu)}
@@ -102,8 +210,18 @@ export default function Navbar() {
 
           {showRoleMenu && (
             <div className="absolute top-full right-0 mt-2 bg-white text-black shadow rounded w-48 z-50">
-              <a href="https://react-project-gooy.vercel.app/login" className="block px-4 py-2 hover:bg-gray-100 border-b">Guest</a>
-              <a href="https://sneaker-x-mocha.vercel.app/" className="block px-4 py-2 hover:bg-gray-100">Admin</a>
+              <a
+                href="https://react-project-gooy.vercel.app/login"
+                className="block px-4 py-2 hover:bg-gray-100 border-b"
+              >
+                Guest
+              </a>
+              <a
+                href="https://sneaker-x-mocha.vercel.app/"
+                className="block px-4 py-2 hover:bg-gray-100"
+              >
+                Admin
+              </a>
             </div>
           )}
         </div>

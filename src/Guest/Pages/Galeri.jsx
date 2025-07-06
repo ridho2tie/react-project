@@ -1,5 +1,6 @@
 // src/Guest/Pages/Galeri.jsx
 import Navbar from "../Components/Navbar";
+import Footer from '../Components/Footer';
 import { useEffect, useState } from "react";
 import { GaleriAPI } from "../../services/GaleriAPI";
 
@@ -36,6 +37,7 @@ export default function Galeri() {
           ))}
         </div>
       </section>
+      <Footer />
     </div>
   );
 }

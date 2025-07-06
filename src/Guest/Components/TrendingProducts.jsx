@@ -33,7 +33,7 @@ export default function TrendingProducts() {
   }, [scrollIndex, maxScroll]);
 
   return (
-    <section className="py-16 px-10 bg-gray-100 shadow-lg">
+    <section className="py-16 px-50 bg-gray-100 shadow-lg">
       <div className="grid md:grid-cols-2 gap-10 items-start">
         <div>
           <h3 className="text-3xl font-extrabold text-black">Our Trending Shoes</h3>

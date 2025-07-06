@@ -13,11 +13,11 @@ export default function Testimonial() {
   ];
 
   return (
-    <section className="py-16 px-10 bg-gray-100">
-      <div className="flex items-center justify-center my-10">
-  <span className="w-10 h-px mt-20 bg-black mr-4"></span>
-  <h2 className="text-2xl font-bold mt-20">Client Testimonial</h2>
-  <span className="w-10 h-px mt-20 bg-black ml-4"></span>
+    <section className="py-8 px-50 bg-gray-100">
+      <div className="flex items-center justify-center">
+  <span className="w-10 h-px  bg-black mr-4"></span>
+  <h2 className="text-2xl font-bold py-10">Client Testimonial</h2>
+  <span className="w-10 h-px  bg-black ml-4"></span>
 </div>
 
       

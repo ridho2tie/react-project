@@ -1,5 +1,6 @@
 // src/Guest/Pages/FAQ.jsx
 import Navbar from "../Components/Navbar";
+import Footer from '../Components/Footer';
 import { useEffect, useState } from "react";
 import { FAQAPI } from "../../services/FAQAPI";
 
@@ -13,7 +14,7 @@ export default function FAQ() {
   return (
     <div className="bg-gray-100 min-h-screen">
       <Navbar />
-      <section className="max-w-3xl mx-auto py-20 px-6">
+      <section className="max-w-3xl mx-auto py-25 px-6">
         <h2 className="text-3xl font-bold text-center mb-10 text-gray-800">
           Pertanyaan Umum
         </h2>
@@ -31,6 +32,7 @@ export default function FAQ() {
           ))}
         </div>
       </section>
+      <Footer />
     </div>
   );
 }

@@ -12,7 +12,7 @@ export default function BestSelling() {
   }, []);
 
   return (
-    <section className="pb-35 pt-10 px-10 bg-gray-100 ">
+    <section className="pb-35 pt-10 px-50 bg-gray-100 ">
       <div className="flex items-center justify-center my-10">
         <span className="w-10 h-px bg-black mr-4"></span>
         <h2 className="text-2xl text-black font-bold mb-4 text-center">Best Selling</h2>
