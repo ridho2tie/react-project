@@ -22,7 +22,7 @@ export default function Register() {
         nama: formData.nama,
         email: formData.email,
         password: formData.password,
-        role: "guest", // ✅ Ganti "Pelanggan" jadi "guest"
+        role: "Customer", // ✅ pakai enum yang valid
         status_user: "aktif",
         created_at: new Date().toISOString(),
       });
