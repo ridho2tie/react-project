@@ -32,7 +32,7 @@ export default function Footer() {
         <ul className="space-y-2 ml-30 text-sm text-gray-300">
           <li>
             <Link
-              to="/"
+              to="/faqs"
               className="underline hover:text-white transition"
             >
               FAQs
