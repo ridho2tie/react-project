@@ -18,12 +18,11 @@ export default function Register() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      // Kirim data ke Supabase dengan role "Pelanggan"
       await UserRoleAPI.createUserRole({
         nama: formData.nama,
         email: formData.email,
         password: formData.password,
-        role: "Pelanggan",
+        role: "guest", // ✅ Ganti "Pelanggan" jadi "guest"
         status_user: "aktif",
         created_at: new Date().toISOString(),
       });
