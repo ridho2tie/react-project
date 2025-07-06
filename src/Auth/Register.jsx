@@ -18,16 +18,21 @@ export default function Register() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
+      // Kirim data ke Supabase dengan role "Pelanggan"
       await UserRoleAPI.createUserRole({
-        ...formData,
+        nama: formData.nama,
+        email: formData.email,
+        password: formData.password,
         role: "Pelanggan",
         status_user: "aktif",
         created_at: new Date().toISOString(),
       });
+
       setSuccess(true);
       setFormData({ nama: "", email: "", password: "" });
     } catch (error) {
-      console.error("Gagal mendaftar:", error);
+      console.error("Gagal mendaftar:", error.response?.data || error.message);
+      alert("Pendaftaran gagal: " + (error.response?.data?.message || error.message));
     }
   };
 
@@ -96,6 +101,7 @@ export default function Register() {
           </div>
         </div>
       </div>
+
       <div className="hidden md:flex items-center justify-center p-8">
         <img
           src="/img/Authimg/Register.png"

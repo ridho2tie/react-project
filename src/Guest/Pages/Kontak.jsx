@@ -1,6 +1,6 @@
 // src/Guest/Pages/Kontak.jsx
 import Navbar from "../Components/Navbar";
-import Footer from '../Components/Footer';
+import Footer from "../Components/Footer";
 import { useState } from "react";
 import { KontakAPI } from "../../services/KontakAPI";
 import {
@@ -21,6 +21,7 @@ export default function Kontak() {
 
   const [success, setSuccess] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [errorMsg, setErrorMsg] = useState("");
 
   const handleChange = (e) =>
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -29,14 +30,17 @@ export default function Kontak() {
     e.preventDefault();
     setLoading(true);
     setSuccess(false);
+    setErrorMsg("");
+
     try {
       console.log("Data yang dikirim:", form);
       await KontakAPI.createKontak(form);
       setSuccess(true);
       setForm({ nama: "", email: "", pesan: "" });
     } catch (error) {
-      console.error("Gagal mengirim pesan:", error.response?.data || error.message);
-      alert("Gagal mengirim pesan. Coba lagi.");
+      const message = error.response?.data?.message || error.message;
+      console.error("Gagal mengirim:", message);
+      setErrorMsg(message);
     } finally {
       setLoading(false);
     }
@@ -46,8 +50,7 @@ export default function Kontak() {
     <div className="bg-base-200 min-h-screen font-poppins">
       <Navbar />
 
-      {/* HEADER */}
-      <section className="text-center  pt-30 px-4">
+      <section className="text-center pt-30 px-4">
         <h1 className="text-5xl font-bold font-poppinsxl text-gray-800 mb-4">
           Contact Us
         </h1>
@@ -57,8 +60,7 @@ export default function Kontak() {
         </p>
       </section>
 
-      {/* 2 GRID TERPISAH */}
-      <section className="max-w-7xl mx-auto grid mb-10 md:grid-cols-2 rounded-xl overflow-hidden shadow-lg mt-10">
+      <section className="max-w-7xl mx-auto mb-10 grid md:grid-cols-2 rounded-xl overflow-hidden shadow-lg mt-10">
         {/* FORM */}
         <div className="bg-white p-10">
           <h2 className="text-2xl font-bold text-gray-800 mb-4 font-poppinsxl">
@@ -68,6 +70,11 @@ export default function Kontak() {
           {success && (
             <div className="bg-green-100 border-l-4 border-green-600 text-green-800 p-3 rounded text-sm mb-4">
               Pesan berhasil dikirim!
+            </div>
+          )}
+          {errorMsg && (
+            <div className="bg-red-100 border-l-4 border-red-600 text-red-800 p-3 rounded text-sm mb-4">
+              Gagal: {errorMsg}
             </div>
           )}
 
@@ -109,17 +116,17 @@ export default function Kontak() {
             </div>
             <button
               type="submit"
+              disabled={loading}
               className={`w-full bg-black text-white py-3 rounded font-semibold transition ${
                 loading ? "opacity-60 cursor-not-allowed" : "hover:bg-gray-700"
               }`}
-              disabled={loading}
             >
               {loading ? "Mengirim..." : "Kirim Pesan"}
             </button>
           </form>
         </div>
 
-        {/* INFO KONTAK */}
+        {/* INFO */}
         <div className="bg-black text-white p-10 font-poppins flex flex-col justify-between">
           <div>
             <h3 className="text-2xl font-bold font-poppinsxl mb-4">
@@ -143,6 +150,7 @@ export default function Kontak() {
               </p>
             </div>
           </div>
+
           <div className="flex gap-4 pt-8 text-2xl">
             <FaFacebook className="hover:text-blue-400 cursor-pointer" />
             <FaInstagram className="hover:text-pink-400 cursor-pointer" />
