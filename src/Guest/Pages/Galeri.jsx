@@ -1,8 +1,8 @@
 // src/Guest/Pages/Galeri.jsx
 import Navbar from "../Components/Navbar";
-import Footer from '../Components/Footer';
+import Footer from "../Components/Footer";
 import { useEffect, useState } from "react";
-import { GaleriAPI } from "../../services/GaleriAPI"
+import { GaleriAPI } from "../../services/GaleriAPI";
 
 export default function Galeri() {
   const [items, setItems] = useState([]);
@@ -10,6 +10,10 @@ export default function Galeri() {
   useEffect(() => {
     GaleriAPI.fetchGaleri().then(setItems);
   }, []);
+
+  const isVideo = (url) => {
+    return url.match(/\.(mp4|webm|ogg)$/i);
+  };
 
   return (
     <div className="bg-gray-100 min-h-screen">
@@ -24,11 +28,19 @@ export default function Galeri() {
               key={item.id}
               className="bg-white rounded shadow p-4 flex flex-col items-center"
             >
-              <img
-                src={item.image_url}
-                alt={item.nama}
-                className="w-full h-48 object-cover rounded mb-4"
-              />
+              {isVideo(item.image_url) ? (
+                <video
+                  src={item.image_url}
+                  controls
+                  className="w-full h-48 object-cover rounded mb-4"
+                />
+              ) : (
+                <img
+                  src={item.image_url}
+                  alt={item.nama}
+                  className="w-full h-48 object-cover rounded mb-4"
+                />
+              )}
               <h3 className="font-semibold text-lg">{item.nama}</h3>
             </div>
           ))}
@@ -38,3 +50,4 @@ export default function Galeri() {
     </div>
   );
 }
+  
