@@ -41,12 +41,11 @@ export default function Navbar() {
   ${isScrolled ? "bg-white shadow-md" : "bg-transparent backdrop-blur-md"}
   flex justify-between items-center py-2 px-10`}
       >
-<img
-  src="/img/Sneakerx.png"
-  alt="SneakerX Logo"
-  className="h-20 w-50 object-cover"
-/>
-
+        <img
+          src="/img/Sneakerx.png"
+          alt="SneakerX Logo"
+          className="h-20 w-50 object-cover"
+        />
 
         {/* ...lanjutan Navbar tetap sama */}
 
@@ -110,66 +109,6 @@ export default function Navbar() {
               }
             >
               Produk
-            </NavLink>
-          </li>
-          <li>
-            <NavLink
-              to="/faqs"
-              className={({ isActive }) =>
-                `transition duration-200 ${
-                  isActive ? "text-gray-500" : "text-black"
-                } hover:text-gray-500`
-              }
-            >
-              FAQs
-            </NavLink>
-          </li>
-          <li>
-            <NavLink
-              to="/kontak"
-              className={({ isActive }) =>
-                `transition duration-200 ${
-                  isActive ? "text-gray-500" : "text-black"
-                } hover:text-gray-500`
-              }
-            >
-              Kontak
-            </NavLink>
-          </li>
-          <li>
-            <NavLink
-              to="/galeri"
-              className={({ isActive }) =>
-                `transition duration-200 ${
-                  isActive ? "text-gray-500" : "text-black"
-                } hover:text-gray-500`
-              }
-            >
-              Galeri
-            </NavLink>
-          </li>
-          <li>
-            <NavLink
-              to="/ourteam"
-              className={({ isActive }) =>
-                `transition duration-200 ${
-                  isActive ? "text-gray-500" : "text-black"
-                } hover:text-gray-500`
-              }
-            >
-              Team
-            </NavLink>
-          </li>
-          <li>
-            <NavLink
-              to="/career"
-              className={({ isActive }) =>
-                `transition duration-200 ${
-                  isActive ? "text-gray-500" : "text-black"
-                } hover:text-gray-500`
-              }
-            >
-              Career
             </NavLink>
           </li>
         </ul>
