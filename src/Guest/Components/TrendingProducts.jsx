@@ -1,5 +1,6 @@
 // src/Guest/Components/TrendingProducts.jsx
 import { useEffect, useRef, useState } from "react";
+import { supabase } from "../../services/supabase";
 
 export default function TrendingProducts() {
   const containerRef = useRef(null);
@@ -12,10 +13,21 @@ export default function TrendingProducts() {
   const maxScroll = Math.ceil(visibleProduk.length / ITEMS_PER_VIEW);
 
   useEffect(() => {
-    fetch("/data/produk.json")
-      .then((res) => res.json())
-      .then((data) => setProduk(data))
-      .catch((err) => console.error("Gagal mengambil data produk.json", err));
+    const fetchTrending = async () => {
+      const { data, error } = await supabase
+        .from("sepatu")
+        .select("id, nama, brand, harga, gambar")
+        .order("terjual", { ascending: false }) // optional: bisa pakai 'rating' juga
+        .limit(9);
+
+      if (error) {
+        console.error("Gagal mengambil data trending:", error.message);
+      } else {
+        setProduk(data);
+      }
+    };
+
+    fetchTrending();
   }, []);
 
   useEffect(() => {
@@ -33,7 +45,7 @@ export default function TrendingProducts() {
   }, [scrollIndex, maxScroll]);
 
   return (
-    <section className="py-16 px-50 bg-gray-100 shadow-lg">
+    <section className="py-25 px-50 bg-gray-100 shadow-lg">
       <div className="grid md:grid-cols-2 gap-10 items-start">
         <div>
           <h3 className="text-3xl font-extrabold text-black">Our Trending Shoes</h3>
@@ -51,19 +63,24 @@ export default function TrendingProducts() {
             className="flex gap-6 overflow-x-auto scroll-smooth no-scrollbar"
             ref={containerRef}
           >
-            {visibleProduk.map((product, idx) => (
-              <div key={idx} className="card w-80 bg-base-100 shadow-sm flex-shrink-0">
+            {visibleProduk.map((product) => (
+              <div
+                key={product.id}
+                className="card w-80 bg-base-100 shadow-sm flex-shrink-0"
+              >
                 <figure>
                   <img
-                    src={product.image}
-                    alt={product.name}
+                    src={product.gambar}
+                    alt={product.nama}
                     className="w-full h-48 object-contain"
                   />
                 </figure>
                 <div className="card-body">
-                  <h2 className="card-title">{product.name}</h2>
-                  <p className="text-sm text-gray-500 line-through">{product.oldPrice}</p>
-                  <p className="text-lg text-pink-600">{product.price}</p>
+                  <h2 className="card-title">{product.nama}</h2>
+                  <p className="text-sm text-gray-500">{product.brand}</p>
+                  <p className="text-lg text-pink-600">
+                    Rp {parseInt(product.harga).toLocaleString("id-ID")}
+                  </p>
                   <div className="card-actions justify-end">
                     <button className="btn btn-primary">Lihat</button>
                   </div>

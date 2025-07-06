@@ -11,8 +11,8 @@ export default function Home() {
       <HeroSection />
       <BrandPartners/>
       <TrendingProducts />
-      <BestSelling />
       <Banner/>
+      <BestSelling />
       <Testimonial />
     </>
   );

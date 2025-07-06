@@ -13,15 +13,15 @@ export default function Testimonial() {
   ];
 
   return (
-    <section className="py-8 px-50 bg-gray-100">
+    <section className="py-2 px-50 bg-gray-100">
       <div className="flex items-center justify-center">
   <span className="w-10 h-px  bg-black mr-4"></span>
-  <h2 className="text-2xl font-bold py-10">Client Testimonial</h2>
+  <h2 className="text-2xl font-bold py-5">Client Testimonial</h2>
   <span className="w-10 h-px  bg-black ml-4"></span>
 </div>
 
       
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 mb-10 md:grid-cols-2 gap-6">
         {testimonials.map((t, idx) => (
           <div key={idx} className="bg-white p-6 rounded shadow text-center">
             <img

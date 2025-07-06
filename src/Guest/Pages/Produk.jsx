@@ -1,14 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { Input } from "../Components/Input";
-import { Button } from "../Components/Button";
 import { Card, CardContent } from "../Components/Card";
 import { Checkbox } from "../Components/Checkbox";
 import Footer from "../Components/Footer";
 import Navbar from "../Components/Navbar";
 import { Search, ChevronUp, ChevronDown } from "lucide-react";
 import { ProdukAPI } from "../../services/ProdukAPI";
-
-const tabs = ["NEW", "BEST SELLERS"];
+import { Input } from "../Components/Input";
+import { useLocation } from "react-router-dom";
 
 const priceRanges = [
   { label: "500rb - 800rb", min: 500000, max: 800000 },
@@ -18,15 +16,27 @@ const priceRanges = [
   { label: "1,7jt - 2jt", min: 1700000, max: 2000000 },
 ];
 
+const brandIcons = [
+  { name: "Adidas", icon: "/img/brands/adidas.svg" },
+  { name: "Converse", icon: "/img/brands/converse.svg" },
+  { name: "Jordan", icon: "/img/brands/jordan.svg" },
+  { name: "NBA", icon: "/img/brands/nba.svg" },
+  { name: "New Balance", icon: "/img/brands/newbalance.svg" },
+  { name: "Nike", icon: "/img/brands/nike.svg" },
+  { name: "Puma", icon: "/img/brands/puma.svg" },
+];
+
 export default function ProductPage() {
+  const location = useLocation();
+  const queryParams = new URLSearchParams(location.search);
+  const queryBrand = queryParams.get("brand");
+
   const [products, setProducts] = useState([]);
   const [filtered, setFiltered] = useState([]);
 
-  const [brands, setBrands] = useState([]);
   const [genders, setGenders] = useState([]);
   const [sizes, setSizes] = useState([]);
 
-  const [brandOpen, setBrandOpen] = useState(true);
   const [genderOpen, setGenderOpen] = useState(true);
   const [sizeOpen, setSizeOpen] = useState(true);
   const [priceOpen, setPriceOpen] = useState(true);
@@ -43,17 +53,18 @@ export default function ProductPage() {
       setProducts(data);
       setFiltered(data);
 
-      const brandSet = [...new Set(data.map((p) => p.brand))];
       const genderSet = [...new Set(data.map((p) => p.gender))];
-      const sizeSet = [
-        ...new Set(
-          data.flatMap((p) => p.ukuran.split(",").map((u) => u.trim()))
-        ),
-      ];
+      const sizeSet = [...new Set(data.flatMap((p) => p.ukuran.split(",").map((u) => u.trim())))];
 
-      setBrands(brandSet);
       setGenders(genderSet);
       setSizes(sizeSet);
+
+      if (queryBrand) {
+        setFilters((prev) => ({
+          ...prev,
+          brand: [queryBrand]
+        }));
+      }
     });
   }, []);
 
@@ -95,6 +106,15 @@ export default function ProductPage() {
     });
   };
 
+  const handleBrandIconClick = (brand) => {
+    setFilters((prev) => ({
+      ...prev,
+      brand: prev.brand.includes(brand)
+        ? prev.brand.filter((b) => b !== brand)
+        : [...prev.brand, brand],
+    }));
+  };
+
   return (
     <div className="bg-base-200 pt-24 font-poppins min-h-screen">
       <Navbar />
@@ -102,29 +122,6 @@ export default function ProductPage() {
         {/* Sidebar */}
         <aside className="col-span-2 p-6 border-r bg-white min-h-screen">
           <h2 className="font-bold mb-6 text-lg">Filters</h2>
-
-          {/* Brand */}
-          <div className="mb-6">
-            <div
-              className="flex justify-between font-semibold cursor-pointer mb-2"
-              onClick={() => setBrandOpen(!brandOpen)}
-            >
-              <span>Brand</span>
-              {brandOpen ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
-            </div>
-            {brandOpen &&
-              brands.map((brand) => (
-                <div className="flex items-center space-x-2" key={brand}>
-                  <Checkbox
-                    id={`brand-${brand}`}
-                    onChange={() => handleCheckbox("brand", brand)}
-                  />
-                  <label htmlFor={`brand-${brand}`} className="text-sm">
-                    {brand}
-                  </label>
-                </div>
-              ))}
-          </div>
 
           {/* Gender */}
           <div className="mb-6">
@@ -200,6 +197,35 @@ export default function ProductPage() {
         <main className="col-span-10 px-8 py-6">
           <h1 className="text-3xl font-bold mb-4">PRODUK</h1>
 
+          {/* Search + Brand Icons */}
+          <div className="flex flex-wrap md:flex-nowrap items-center justify-between mb-8 gap-4">
+            <div className="flex items-center gap-10 w-full">
+              <Input placeholder="Cari produk..." className="w-full md:w-72" />
+              <div className="flex gap-6 flex-wrap">
+                {brandIcons.map(({ name, icon }) => {
+                  const isActive = filters.brand.includes(name);
+                  return (
+                    <button
+                      key={name}
+                      onClick={() => handleBrandIconClick(name)}
+                      className={`p-1 rounded-full border transition transform duration-150 ${
+                        isActive ? "border-black scale-150" : "border-gray-300 hover:scale-90"
+                      }`}
+                      title={name}
+                    >
+                      <img
+                        src={icon}
+                        alt={name}
+                        className="w-20 h-10 object-contain"
+                      />
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
+          </div>
+
+          {/* Product Grid */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {filtered.map((product) => (
               <Card key={product.id} to={`/produk/${product.id}`}>

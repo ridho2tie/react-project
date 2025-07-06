@@ -1,4 +1,7 @@
+import { useNavigate } from "react-router-dom";
+
 export default function BrandTag({ visible }) {
+  const navigate = useNavigate();
   if (!visible) return null;
 
   const brandIcons = [
@@ -14,15 +17,15 @@ export default function BrandTag({ visible }) {
   return (
     <div className="bg-black py-4 flex justify-center items-center gap-30 shadow-lg z-40">
       {brandIcons.map((brand, i) => (
-        <div key={i} className="flex flex-col items-center cursor-pointer group">
+        <button
+          key={i}
+          onClick={() => navigate(`/produk?brand=${encodeURIComponent(brand.name)}`)}
+          className="flex flex-col items-center cursor-pointer group bg-transparent border-none outline-none"
+        >
           <img
             src={brand.icon}
             alt={brand.name}
             className="h-20 w-auto object-contain opacity-70 group-hover:opacity-100 transition-all duration-300 filter brightness-0 invert group-hover:scale-110"
-            onError={(e) => {
-              e.target.style.display = 'none';
-              e.target.nextSibling.style.display = 'block';
-            }}
           />
           <span className="text-white text-xs mt-1 opacity-70 group-hover:opacity-100 transition-opacity duration-300 hidden">
             {brand.name}
@@ -30,7 +33,7 @@ export default function BrandTag({ visible }) {
           <div className="text-white text-sm font-semibold opacity-70 group-hover:opacity-100 transition-opacity duration-300 hidden">
             {brand.name}
           </div>
-        </div>
+        </button>
       ))}
     </div>
   );

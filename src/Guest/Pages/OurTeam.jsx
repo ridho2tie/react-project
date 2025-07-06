@@ -34,7 +34,7 @@ export default function OurTeam() {
             <Navbar />
 
             {/* Header */}
-            <section className="text-center py-10 px-4">
+            <section className="text-center py-13 px-4">
                 <h1 className="text-5xl font-bold text-gray-800 mb-4">Meet Our Team</h1>
                 <p className="text-gray-600 text-lg">
                     Orang-orang hebat di balik produk dan layanan terbaik kami.

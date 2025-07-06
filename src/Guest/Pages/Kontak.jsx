@@ -1,4 +1,3 @@
-// src/Guest/Pages/Kontak.jsx
 import Navbar from "../Components/Navbar";
 import Footer from "../Components/Footer";
 import { useState } from "react";
@@ -14,9 +13,10 @@ import {
 
 export default function Kontak() {
   const [form, setForm] = useState({
-    nama: "",
+    namaPengirim: "",
     email: "",
-    pesan: "",
+    subjekPesan: "",
+    isiPesan: "",
   });
 
   const [success, setSuccess] = useState(false);
@@ -33,10 +33,19 @@ export default function Kontak() {
     setErrorMsg("");
 
     try {
-      console.log("Data yang dikirim:", form);
-      await KontakAPI.createKontak(form);
+      await KontakAPI.createKontak({
+        ...form,
+        tanggalKirim: new Date().toISOString().slice(0, 10), // Format: YYYY-MM-DD
+        status: "Belum dibaca",
+      });
+
       setSuccess(true);
-      setForm({ nama: "", email: "", pesan: "" });
+      setForm({
+        namaPengirim: "",
+        email: "",
+        subjekPesan: "",
+        isiPesan: "",
+      });
     } catch (error) {
       const message = error.response?.data?.message || error.message;
       console.error("Gagal mengirim:", message);
@@ -83,9 +92,9 @@ export default function Kontak() {
               <label className="block mb-1 font-semibold">Nama</label>
               <input
                 type="text"
-                name="nama"
+                name="namaPengirim"
                 placeholder="Nama Lengkap"
-                value={form.nama}
+                value={form.namaPengirim}
                 onChange={handleChange}
                 className="w-full p-3 border border-gray-300 rounded"
                 required
@@ -104,11 +113,23 @@ export default function Kontak() {
               />
             </div>
             <div>
+              <label className="block mb-1 font-semibold">Subjek</label>
+              <input
+                type="text"
+                name="subjekPesan"
+                placeholder="Judul pesan atau subjek"
+                value={form.subjekPesan}
+                onChange={handleChange}
+                className="w-full p-3 border border-gray-300 rounded"
+                required
+              />
+            </div>
+            <div>
               <label className="block mb-1 font-semibold">Pesan</label>
               <textarea
-                name="pesan"
+                name="isiPesan"
                 placeholder="Tulis pesan kamu..."
-                value={form.pesan}
+                value={form.isiPesan}
                 onChange={handleChange}
                 className="w-full p-3 border border-gray-300 rounded h-32 resize-none"
                 required
@@ -133,7 +154,8 @@ export default function Kontak() {
               Info Kontak
             </h3>
             <p className="italic text-gray-300 mb-6">
-              “Kami akan merespon pesan Anda secepat mungkin, biasanya dalam 1×24 jam kerja.”
+              “Kami akan merespon pesan Anda secepat mungkin, biasanya dalam
+              1×24 jam kerja.”
             </p>
             <div className="space-y-4 text-sm">
               <p className="flex items-center gap-3">
