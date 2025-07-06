@@ -1,7 +1,7 @@
 import Navbar from "../Components/Navbar";
 import Footer from '../Components/Footer';
 import { useState } from "react";
-import { KontakAPI } from "../../services/KontakAPI";
+import { KontakAPI } from "../../services/KontakAPI"
 import {
   FaFacebook,
   FaInstagram,

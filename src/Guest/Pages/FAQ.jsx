@@ -2,7 +2,7 @@
 import Navbar from "../Components/Navbar";
 import Footer from '../Components/Footer';
 import { useEffect, useState } from "react";
-import { FAQAPI } from "../../services/FAQAPI";
+import {FAQAPI} from "../../services/FAQAPI"
 
 export default function FAQ() {
   const [faqs, setFaqs] = useState([]);

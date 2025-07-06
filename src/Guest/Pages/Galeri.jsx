@@ -2,10 +2,7 @@
 import Navbar from "../Components/Navbar";
 import Footer from '../Components/Footer';
 import { useEffect, useState } from "react";
-import { GaleriAPI } from "../../services/GaleriAPI";
-
-
-
+import { GaleriAPI } from "../../services/GaleriAPI"
 
 export default function Galeri() {
   const [items, setItems] = useState([]);
