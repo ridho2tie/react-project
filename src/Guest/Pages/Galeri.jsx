@@ -42,7 +42,7 @@ export default function Galeri() {
                 )}
               </div>
 
-              <h3 className="text-center text-sm mt-24 font-semibold text-gray-700">
+              <h3 className="text-center text-sm mt-24   font-semibold text-gray-700">
                 {item.judul}
               </h3>
             </div>
