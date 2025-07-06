@@ -55,7 +55,7 @@ export default function DetailProduk() {
     <div className="flex flex-col min-h-screen bg-white font-sans">
       <Navbar />
       <div className="max-w-7xl mx-auto pt-40 pb-25 px-6 grid grid-cols-1 md:grid-cols-2 gap-10">
-        {/* Galeri */}
+        
         <div className="flex gap-4">
           <div className="space-y-2">
             {[product.gambar].map((img, idx) => (
